@@ -49,7 +49,7 @@ const handleLoginWithUsername = async (req, res) => {
         console.log(updatedAccount)
 
         //send back accessToken in json, refreshToken in cookies
-        res.cookie('jwt', refreshToken, { htttpOnly: true, maxAge: 24 * 60 * 60 * 1000, sameSite: 'None' })
+        res.cookie('jwt', refreshToken, { htttpOnly: true, maxAge: 24 * 60 * 60 * 1000})
         res.status(200).json({ accessToken })
 
     } else {
@@ -102,7 +102,7 @@ const handleLoginWithEmail = async (req, res) => {
         console.log(updatedAccount)
 
         //send back accessToken in json, refreshToken in cookies
-        res.cookie('jwt', refreshToken, { htttpOnly: true, maxAge: 24 * 60 * 60 * 1000, sameSite: 'None', secure: true })
+        res.cookie('jwt', refreshToken, { htttpOnly: true, maxAge: 24 * 60 * 60 * 1000})
         res.status(200).json({ accessToken })
 
     } else {

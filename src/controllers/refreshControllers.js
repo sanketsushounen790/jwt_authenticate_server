@@ -36,16 +36,6 @@ const refreshAccessToken = async (req, res) => {
             "id": foundAccount._id
         })
 
-        const newRefreshToken = generateRefreshToken({
-            "username": foundAccount.username,
-            "id": foundAccount._id
-        })
-
-        // saving refreshToken with current account
-        foundAccount.refreshToken = newRefreshToken
-        const updatedAccount = await foundAccount.save()
-        console.log(updatedAccount)
-
         //send back newAccessToken
         res.json({ newAccessToken })
     }
